@@ -8,11 +8,19 @@
 <div>
     <h1>BMW Group Ordering</h1>
 </div>
-
+<table>
 {% for restaurant in restaurants %}
+    <tr>
     <div>
-        <h1><a href="{% url 'menu' pk=restaurant.pk %}">{{ restaurant.name }}</a></h1>
+        <td><a href="{% url "menu" pk=restaurant.pk %}">{{ restaurant.name }}</a></td>
+        {% if restaurant.status %}
+            <td style="padding-left:300px">营业中</td>
+        {% else %}
+        <td style="padding-left:300px">休息中</td>
+        {% endif %}
     </div>
+    </tr>
 {% endfor %}
+</table>
 </body>
 </html>

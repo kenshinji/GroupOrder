@@ -4,12 +4,15 @@ from .models import Restaurant, Dish
 # Create your views here.
 def restaurant_list(request):
     #####dummy data
+    Restaurant.objects.all().delete()
     restaurant1 = Restaurant()
     restaurant1.name = "Macdonald"
     restaurant1.status = True
+    restaurant1.save()
     restaurant2 = Restaurant()
     restaurant2.name = "KFC"
     restaurant2.status = False
+    restaurant2.save()
     restaurants = [restaurant1, restaurant2]
     #####dummy data
 
